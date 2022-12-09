@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>BC23 Pasen</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .fa {
+            color: #c1d7ab;
+        }
+
+        .text-green {
+            color: #7e9c60;
+        }
+
+        .container {
+            max-width: 55rem;
+        }
+
+        body {
+            background-image: url('https://t3.ftcdn.net/jpg/03/13/60/96/360_F_313609653_RNueSRo0SvLj1rzrkP5ZuNKlPUVoMyWe.jpg');
+        }
+
+        .bg-body {
+            background-color:rgba(255, 255, 255, 0.9) !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">BC23</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/">Kalender</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Leefgroep verdeling</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/vriendenboekje.html">Vriendenboekje</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <div id="app" class="d-none">
+        <main v-show="unlocked" class="container">
+            <div v-for="(val, index) in userData" :key="index">
+                <div class="my-4 p-3 bg-body rounded shadow-sm">
+                    <h2 class="pb-2 mb-0">{{index}}</h6>
+
+                    <div v-for="(user, index) in val" :key="index" class="d-flex flex-wrap py-3 border-top">
+                        <img v-show="!user[21]" class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="192" height="192" src="https://www.darylroththeatre.com/wp-content/uploads/2018/10/avatar-placeholder.png"></img>
+                        <img v-show="user[21]" class="bd-placeholder-img flex-shrink-0 me-2 rounded" style="object-fit: cover" width="192" height="192" v-bind:src="user[22]"></img>
+                        <div class="pb-3 mb-0 w-100" style="max-width: 600px">
+                          <span class="d-block">
+                            <span class="h4">{{user[0]}}</span> <span class="h6">{{user[1]}}</span>
+                          </span>
+                          
+
+                          <div class="row mt-2">
+                            <div class="col-md-6 mb-2 d-flex align-items-baseline">
+                                <span class="d-block text-secondary">{{user[3]}} jaar uit {{user[2]}}</span>
+                            </div>
+                            <div class="col-md-6 mb-2 d-flex align-items-baseline">
+                                <i class="fa fa-lg fa-phone"></i>
+                                <span class="ms-2">{{user[5]}}</span>
+                            </div>
+                            <div class="col-md-6 mb-2 d-flex align-items-baseline">
+                                <i class="fa fa-lg fa-clock"></i>
+                                <span class="ms-2">{{user[4]}} cursus(sen) ervaring</span>
+                            </div>
+                            <div class="col-md-6 mb-2 d-flex align-items-baseline">
+                                <i class="fa fa-lg fa-school"></i>
+                                <span class="ms-2">{{user[6]}}</span>
+                            </div>
+                          </div>
+                          
+                          <span class="d-block text-green">Leuk weetje</span>
+                          <span class="d-block">{{user[8]}}</span>
+
+                          <span class="d-block text-green mt-2">Beschrijf jezelf als een supermarktmerk</span>
+                          <span class="d-block">{{user[9]}}</span>
+
+                          <span class="d-block text-green mt-2">Waar word jij blij van?</span>
+                          <span class="d-block">{{user[10]}}</span>
+
+                          <span class="d-block text-green mt-2">Hoe ziet jouw droomcursus er uit?</span>
+                          <span class="d-block">{{user[11]}}</span>
+
+                          <span class="d-block text-green mt-2">Wat zijn jouw verwachtingen van de voorbereidingen?</span>
+                          <span class="d-block">{{user[12]}}</span>
+
+                          <span class="d-block text-green mt-2">Hoe verloopt je cursusvoorbereiding?</span>
+                          <span class="d-block">{{user[13]}}</span>
+
+                          <span class="d-block text-green mt-2">Hoe heb jij je voorbereiding het liefst?</span>
+                          <span class="d-block">{{user[14]}}</span>
+
+                          <span class="d-block text-green mt-2">Voorkeur bij jou BC-voorbereiding</span>
+                          <span class="d-block">{{user[15]}}</span>
+
+                          <span class="d-block text-green mt-2">Over methodieken</span>
+                          <span class="d-block">{{user[16]}}</span>
+
+                          <span class="d-block text-green mt-2">Wanneer piek jij?</span>
+                          <span class="d-block">{{user[17]}}</span>
+
+                          <span class="d-block text-green mt-2">Mijn vergadervoorkeuren in leefgroep</span>
+                          <span class="d-block">{{user[18]}}</span>
+
+                          <span class="d-block text-green mt-2">Een groeipunt op vlak van BC geven</span>
+                          <span class="d-block">{{user[19]}}</span>
+
+                          <span class="d-block text-green mt-2">2 eigenschappen die zeker van pas komen op BC</span>
+                          <span class="d-block">{{user[20]}}</span>
+                        </p>
+                      </div>
+                </div>
+            </div>
+        </main>
+        <div v-show="!unlocked" class="container">
+            <div class="row alert alert-primary mt-5">
+                Deze pagina is vergrendeld. Voer het wachtwoord in om te ontgrendelen.<br>
+                Denk aan het instructeursthema ;) 
+                <input v-model="password" class="form-control form-control-lg mt-3" type="text">
+            </div>
+          </div>
+    </div>
+
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js'></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
